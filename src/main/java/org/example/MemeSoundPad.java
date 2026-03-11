@@ -16,8 +16,8 @@ public class MemeSoundPad extends JFrame {
 
 // Adicionar 9 botões com imagens e sons
 
-        adicionarBotaoMeme("", "");
-        adicionarBotaoMeme("", "");
+
+        adicionarBotaoMeme("imagen1.jpg", "gato rindo.wav");
         adicionarBotaoMeme("", "");
         adicionarBotaoMeme("", "");
         adicionarBotaoMeme("", "");
@@ -36,7 +36,7 @@ public class MemeSoundPad extends JFrame {
         botao.setIcon(new ImageIcon("resources/images/" + imagem));
         botao.addActionListener(e -> {
 // Tocar em thread separada
-            //   new Thread(() -> player.tocar("resources/sounds/" + som)).start();
+          //      new Thread(() -> player.tocar("resources/sounds/" + som)).start();
         });
         painel.add(botao);
 
