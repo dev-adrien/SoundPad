@@ -11,7 +11,7 @@ public class MemeButton extends JButton {
         this.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         this.setBackground(Color.WHITE);
 
-        String foto = "resources/images/" + imagem;
+        String foto = "src/main/resources/images/" + imagem;
         this.setIcon(new ImageIcon(foto));
 
     }

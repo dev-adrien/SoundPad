@@ -42,7 +42,7 @@ public class MemeSoundPad extends JFrame {
 
             new Thread(() -> {
                 // 2. Toca o som e passa o que deve acontecer ao terminar
-                player.tocar("resources/sounds/" + som, () -> {
+                player.tocar("src/main/resources/sounds/" + som, () -> {
                     // 3. Volta a cor ao normal
                     botao.setTocando(false);
                 });
