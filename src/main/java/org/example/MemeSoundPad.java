@@ -6,28 +6,27 @@ public class MemeSoundPad extends JFrame {
     private JPanel painel;
     private SoundPlayer player = new SoundPlayer();
 
-
     public MemeSoundPad() {
         setTitle("Meme Sound Pad");
         setSize(600, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
+        ImageIcon img = new ImageIcon("src/main/resources/images/unnamed.jpg");
+        setIconImage(img.getImage());
+
         painel = new JPanel(new GridLayout(3, 3, 10, 10));
-
-
-// Adicionar 9 botões com imagens e sons
-
+        painel.setBackground(Color.BLACK);
 
         adicionarBotaoMeme("imagen1.jpg", "gato rindo.wav");
         adicionarBotaoMeme("imagen4.jpg", "TAPORRA MENÓ.wav");
-        adicionarBotaoMeme("imagen3.png", "");
-        adicionarBotaoMeme("", "");
-        adicionarBotaoMeme("", "");
-        adicionarBotaoMeme("", "");
-        adicionarBotaoMeme("", "");
-        adicionarBotaoMeme("", "");
-        adicionarBotaoMeme("", "");
+        adicionarBotaoMeme("imagen3.png", "ELE GOSTA.wav");
+        adicionarBotaoMeme("imagen2.jpg", "plankton.wav");
+        adicionarBotaoMeme("Helicopter.jpeg", "Helicopter.wav");
+        adicionarBotaoMeme("shindeiru.jpg", "Omae Wa Mou Shindeiru.wav");
+        adicionarBotaoMeme("images.jpg", "To Be Continued.wav");
+        adicionarBotaoMeme("Emotional.jpg", "Emotional Damage.wav");
+        adicionarBotaoMeme("1xg.jpg", "GUESS THE SONG.wav");
 
 // ... mais 7
 
@@ -37,11 +36,10 @@ public class MemeSoundPad extends JFrame {
     private void adicionarBotaoMeme(String imagem, String som) {
         MemeButton botao = new MemeButton(imagem, som);
         botao.addActionListener(e -> {
-            // 1. Muda a cor para "Tocando"
             botao.setTocando(true);
 
             new Thread(() -> {
-                // 2. Toca o som e passa o que deve acontecer ao terminar
+
                 player.tocar("src/main/resources/sounds/" + som, () -> {
                     // 3. Volta a cor ao normal
                     botao.setTocando(false);
