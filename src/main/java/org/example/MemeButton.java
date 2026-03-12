@@ -32,7 +32,7 @@ public class MemeButton extends JButton {
         this.tocando = status;
 
         if (this.tocando) {
-            this.setBorder(BorderFactory.createLineBorder(Color.GREEN, 5));
+            this.setBorder(BorderFactory.createLineBorder(Color.BLUE, 5));
             this.setBackground(new Color(230, 230, 255));
         } else {
             this.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));

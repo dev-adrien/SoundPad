@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MemeSoundPad extends JFrame {
+
     private JPanel painel;
     private SoundPlayer player = new SoundPlayer();
 
@@ -11,9 +12,6 @@ public class MemeSoundPad extends JFrame {
         setSize(600, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-
-        ImageIcon img = new ImageIcon("src/main/resources/images/unnamed.jpg");
-        setIconImage(img.getImage());
 
         painel = new JPanel(new GridLayout(3, 3, 10, 10));
         painel.setBackground(Color.BLACK);
@@ -28,11 +26,9 @@ public class MemeSoundPad extends JFrame {
         adicionarBotaoMeme("Emotional.jpg", "Emotional Damage.wav");
         adicionarBotaoMeme("1xg.jpg", "GUESS THE SONG.wav");
 
-// ... mais 7
-
         add(painel);
-        setVisible(true);
     }
+
     private void adicionarBotaoMeme(String imagem, String som) {
         MemeButton botao = new MemeButton(imagem, som);
         botao.addActionListener(e -> {
@@ -41,7 +37,7 @@ public class MemeSoundPad extends JFrame {
             new Thread(() -> {
 
                 player.tocar("src/main/resources/sounds/" + som, () -> {
-                    // 3. Volta a cor ao normal
+
                     botao.setTocando(false);
                 });
             }).start();
@@ -54,4 +50,5 @@ public class MemeSoundPad extends JFrame {
         SwingUtilities.invokeLater(() -> {
             new MemeSoundPad().setVisible(true);
         });
-    }}
+    }
+}
