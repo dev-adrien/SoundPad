@@ -1,8 +1,8 @@
 # Meme Sound Pad
 
 Autores:
-Adrien Bezerra Leandro
-Felipe Araujo Carvalho
+- Adrien Bezerra Leandro
+- Felipe Araujo Carvalho
 
 Este é um projeto simples desenvolvido em Java Swing que simula uma mesa de som de memes.
 
