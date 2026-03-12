@@ -35,11 +35,16 @@ public class MemeSoundPad extends JFrame {
             botao.setTocando(true);
 
             new Thread(() -> {
-
+                try {
                 player.tocar("src/main/resources/sounds/" + som, () -> {
 
                     botao.setTocando(false);
                 });
+
+                } catch (Exception ex) {
+                    System.out.println("Erro: " + ex.getMessage());
+                    botao.setTocando(false);
+                }
             }).start();
         });
 
