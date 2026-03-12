@@ -2,6 +2,7 @@ package org.example;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 public class MemeButton extends JButton {
     private boolean tocando = false;
@@ -12,18 +13,27 @@ public class MemeButton extends JButton {
         this.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
         this.setBackground(Color.WHITE);
 
-        ImageIcon iconOriginal = new ImageIcon("src/main/resources/images/" + imagem);
-        Image imgEscalada = iconOriginal.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-        this.setIcon(new ImageIcon(imgEscalada));
+        String caminhoImagem = "src/main/resources/images/" + imagem;
+        File arquivo = new File(caminhoImagem);
+
+        if (arquivo.exists()) {
+            ImageIcon iconOriginal = new ImageIcon(caminhoImagem);
+
+            Image imgEscalada = iconOriginal.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH); // tentativa de deixar a imagem do tamanho do botão
+            this.setIcon(new ImageIcon(imgEscalada));
+        } else {
+            this.setText(som);
+            System.out.println("Erro: imagem não encontrada");
+
+        }
     }
 
     public void setTocando(boolean status) {
         this.tocando = status;
 
         if (this.tocando) {
-            // Quando estiver TOCANDO: Borda colorida (ex: Verde ou Amarelo) e espessa
             this.setBorder(BorderFactory.createLineBorder(Color.GREEN, 5));
-            this.setBackground(new Color(230, 255, 230)); // Um fundo levemente verde
+            this.setBackground(new Color(230, 230, 255));
         } else {
             this.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
             this.setBackground(Color.WHITE);
