@@ -16,21 +16,22 @@ public class MemeSoundPad extends JFrame {
         painel = new JPanel(new GridLayout(3, 3, 10, 10));
         painel.setBackground(Color.BLACK);
 
-        adicionarBotaoMeme("imagen1.jpg", "gato rindo.wav");
-        adicionarBotaoMeme("imagen4.jpg", "TAPORRA MENÓ.wav");
-        adicionarBotaoMeme("imagen3.png", "ELE GOSTA.wav");
-        adicionarBotaoMeme("imagen2.jpg", "plankton.wav");
-        adicionarBotaoMeme("Helicopter.jpeg", "Helicopter.wav");
-        adicionarBotaoMeme("shindeiru.jpg", "Omae Wa Mou Shindeiru.wav");
-        adicionarBotaoMeme("images.jpg", "To Be Continued.wav");
-        adicionarBotaoMeme("Emotional.jpg", "Emotional Damage.wav");
-        adicionarBotaoMeme("1xg.jpg", "GUESS THE SONG.wav");
+        adicionarBotaoMeme("imagen1.jpg", "gato rindo.wav",'1');
+        adicionarBotaoMeme("imagen4.jpg", "TAPORRA MENÓ.wav",'2');
+        adicionarBotaoMeme("imagen3.png", "ELE GOSTA.wav",'3');
+        adicionarBotaoMeme("imagen2.jpg", "plankton.wav",'4');
+        adicionarBotaoMeme("Helicopter.jpeg", "Helicopter.wav",'5');
+        adicionarBotaoMeme("shindeiru.jpg", "Omae Wa Mou Shindeiru.wav",'6');
+        adicionarBotaoMeme("images.jpg", "To Be Continued.wav",'7');
+        adicionarBotaoMeme("Emotional.jpg", "Emotional Damage.wav",'8');
+        adicionarBotaoMeme("1xg.jpg", "GUESS THE SONG.wav",'9');
 
         add(painel);
     }
 
-    private void adicionarBotaoMeme(String imagem, String som) {
+    private void adicionarBotaoMeme(String imagem, String som, char tecla) {
         MemeButton botao = new MemeButton(imagem, som);
+        botao.setMnemonic(tecla);
         botao.addActionListener(e -> {
             botao.setTocando(true);
 
